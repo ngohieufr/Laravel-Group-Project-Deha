@@ -164,6 +164,13 @@
                 @endcan
               </button>
 
+              @if ($message = Session::get('success'))
+              <div class="alert alert-success" role="alert" style="width: 50%; margin: 0 auto; text-align: center;">
+                  {{ $message }}
+              </div>
+          @endif
+
+
 
  
 			  <div class="table-responsive" style="margin-top: 15px;">

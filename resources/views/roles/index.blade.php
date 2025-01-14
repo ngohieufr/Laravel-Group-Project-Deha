@@ -186,13 +186,19 @@
               <h5 class="card-title">List Roles</h5> 
               @if(auth()->user()->can('create', App\Models\User::class))
                   <button class="btn btn-secondary">
-                      <a href="{{ route('users.create') }}" style="text-decoration: none; color: white;">Create new User</a>
+                      <a href="{{ route('roles.create') }}" style="text-decoration: none; color: white;">Create new User</a>
                   </button>
               @else
                   <button class="btn btn-secondary">
                       <span>You do not have permission to create users.</span>
                   </button>
               @endif
+
+              @if ($message = Session::get('success'))
+              <div class="alert alert-success" role="alert" style="width: 50%; margin: 0 auto; text-align: center;">
+                  {{ $message }}
+              </div>
+          @endif
 
 			  <div class="table-responsive" style="margin-top: 15px;">
                <table class="table table-striped">

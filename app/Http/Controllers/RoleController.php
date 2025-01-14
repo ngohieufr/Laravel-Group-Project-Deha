@@ -15,10 +15,6 @@ class RoleController extends Controller
         $this->role = $role;
 
         // Thêm middleware để kiểm tra quyền
-        $this->middleware('can:view,App\Models\Role')->only(['index']);
-        $this->middleware('can:create,App\Models\Role')->only(['create', 'store']);
-        $this->middleware('can:edit,role')->only(['edit', 'update']);
-        $this->middleware('can:delete,role')->only(['destroy']);
     }
 
     public function index()
@@ -58,6 +54,7 @@ class RoleController extends Controller
     public function edit($id)
     {
         $role = Role::findOrFail($id);
+
         $this->authorize('edit', $role);
 
         $permissions = Permission::all();

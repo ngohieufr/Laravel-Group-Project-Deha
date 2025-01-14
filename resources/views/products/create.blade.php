@@ -214,9 +214,9 @@
                         name="category_id"
                         class="form-select @error('category_id') is-invalid @enderror"
                         id="inputCategory">
-                        <option selected>Choose...</option>
+                        <option selected style="background-color: #f0f0f0; color: #333;">Choose...</option>
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            <option value="{{ $category->id }}" style="background-color: #f0f0f0; color: #333;">{{ $category->name }}</option>
                         @endforeach
                     </select>
                     @error('category_id')
@@ -292,13 +292,6 @@
     <!--End Back To Top Button-->
 	
 	<!--Start footer-->
-	<footer class="footer">
-      <div class="container">
-        <div class="text-center">
-          Copyright © 2018 Dashtreme Admin
-        </div>
-      </div>
-    </footer>
 	<!--End footer-->
 	
 	<!--start color switcher-->

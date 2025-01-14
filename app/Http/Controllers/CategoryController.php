@@ -19,6 +19,10 @@ class CategoryController extends Controller
     public function __construct(Category $category)
     {
         $this->category = $category;
+
+        $this->middleware('can:create,App\Models\Category')->only(['create', 'store']);
+        $this->middleware('can:edit,category')->only(['edit', 'update']);
+        $this->middleware('can:delete,category')->only(['destroy']);
     }
 
     /**
