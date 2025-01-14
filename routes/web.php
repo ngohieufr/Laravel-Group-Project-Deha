@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\CategoryController;
 use App\Models\User;
 
 /*
@@ -42,3 +43,6 @@ Route::middleware(['auth'])->name('roles.')->prefix('/roles')->controller(RoleCo
     Route::put('/{id}/update', 'update')->name('update');
     Route::delete('/{id}/destroy', 'destroy')->name('destroy');
 });
+
+Route::resource('categories', CategoryController::class);
+
