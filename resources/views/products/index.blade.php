@@ -116,12 +116,6 @@
        <i class="icon-menu menu-icon"></i>
      </a>
     </li>
-    <li class="nav-item">
-      <form class="search-bar">
-        <input type="text" class="form-control" placeholder="Enter keywords">
-         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
-      </form>
-    </li>
   </ul>
      
   <ul class="navbar-nav align-items-center right-nav-link">
@@ -183,9 +177,16 @@
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">List Product</h5> <button class="'btn btn-secondary"><a href="{{route('products.create')}}" >Create new Product</a></button>
+              <h5 class="card-title">List Product</h5> 
+              <button class="btn btn-secondary">
+                @can('create', App\Models\Product::class)
+                  <a href="{{ route('products.create') }}" style="text-decoration: none; color: white;">Create new Product</a>
+                @else
+                  <span>You do not have permission to create users.</span>
+                @endcan
+              </button>
 			  <form method="GET" action="{{ route('products.index') }}" class="mb-3">
-                <div class="input-group">
+                <div class="input-group" style="margin: 15px;">
                     <!-- Search by Name -->
                     <input type="text" name="search" class="form-control" placeholder="Search products by name" value="{{ request('search') }}">
 
@@ -193,7 +194,7 @@
                     <select name="category" class="form-select">
                         <option value="">-- Select Category --</option>
                         @foreach($categories as $id => $name)
-                            <option value="{{ $name }}" {{ request('category') == $name ? 'selected' : '' }}>
+                            <option style="background-color: #f0f0f0; color: #333;" value="{{ $name }}" {{ request('category') == $name ? 'selected' : '' }}>
                                 {{ $name }}
                             </option>
                         @endforeach
@@ -205,7 +206,7 @@
                <table class="table table-striped">
                <thead>
                 <tr>
-                    <th width="80px">No</th>
+                    <th width="80px">#</th>
                     <th>Image</th>
                     <th>Name</th>
                     <th>Category</th>
@@ -267,6 +268,7 @@
    <!--Start Back To Top Button-->
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
+
 	
 	<!--Start footer-->
 	<footer class="footer">

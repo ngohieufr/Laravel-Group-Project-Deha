@@ -191,7 +191,7 @@
       <div class="col-lg-6">
         <div class="card">
            <div class="card-body">
-           <div class="card-title">New User</div>
+           <div class="card-title">Edit</div>
            <hr>
            <form action="{{ route('roles.update', $role->id) }}" method="POST">
     @csrf

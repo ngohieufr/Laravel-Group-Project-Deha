@@ -153,7 +153,7 @@ class UserController extends Controller
         // Xóa người dùng
         $user->delete();
     
-        return redirect()->route('users.index')->with(['message' => "Delete Success"]);
+        return redirect()->route('users.index')->withwith('success', 'User deleted successfully.');
     }
     
 }

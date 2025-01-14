@@ -175,13 +175,13 @@
           <div class="card">
           <div class="card-body">
 
-@if ($message = Session::get('success'))
-    <div class="alert alert-success" role="alert">
-        <p>{{ $message }}</p>
-    </div>
-@endif
+          @if ($message = Session::get('success'))
+              <div class="alert alert-success" role="alert" style="width: 50%; margin: 0 auto; text-align: center;">
+                  {{ $message }}
+              </div>
+          @endif
 
-<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-top:15px;">
     <a class="btn btn-success btn-sm" href="{{ route('categories.create') }}">
         <i class="fa fa-plus"></i> Create New Category
     </a>
